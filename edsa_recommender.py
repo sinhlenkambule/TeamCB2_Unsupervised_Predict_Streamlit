@@ -170,8 +170,9 @@ def main():
         st.info("##### Why we believe our Recommender System is the best in the market! ")
         st.write("""We created our recommender system with a focus on being user friendly and providing the best experience to the user. We want the 
         user to be exposed to familiar and new content alike and with using our custom algorithm we have achieved this. Our Recommender System will not 
-        only attract more customers to the platform but also have great customer retention as our system only gets more effective the more it is used.
-        Our system is easy to use and implement and will enable any company using it to rival all other similar content driving platforms. """)
+        only attract more customers to the platform due to it's user-friendliness but also have great customer retention which that implies one thing,
+        more customers will subscribe to the platform to get the best movie recommendations, thus leading to a higher profit margin for the company.
+        And last but not least, Our system will also enable any company using it to be at the top of the game against other platforms driving similar content. """)
 
 
     if page_selection == "Visualisations":
