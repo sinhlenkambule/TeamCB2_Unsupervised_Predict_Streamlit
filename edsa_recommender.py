@@ -72,10 +72,9 @@ def main():
 
     # DO NOT REMOVE the 'Recommender System' option below, however,
     # you are welcome to add more options to enrich your app.
-    page_options = ["Recommender System", "Visualisations", "Solution Overview", "Meet the Team", "Contact us"]
+    page_options = ["Recommender System", "Visualisations","Data Information", "Solution Overview", "About Us!"]
     
-    logo = Image.open("images/Astro_Coders1.png")
-    st.sidebar.image("images/Astro_Coders1.png", use_column_width=True)
+    st.sidebar.image("images/Team_logo.png", use_column_width=True)
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -146,23 +145,21 @@ def main():
         st.subheader("Content Based Filtering VS Collaborative Filtering")
         st.write("There are primarily two methods for developing a recommender system. We experimented with both collaborative filtering and content-based filtering to see which approach would produce the greatest results for our system.")
         
-        logo = Image.open("images/contentVScollab1.png")
         st.image("images/contentVScollab2.png")
 
         st.info("##### Content Based Filtering")
-        st.markdown("""The available descriptive data for a certain item or product serves as the foundation for the content-based filtering strategy. 
-        This approach will examine products with comparable descriptions and make recommendations based on that. 
+        st.write("""Content-based filtering uses item features to recommend other items similar to what the user likes, based on their previous actions or explicit feedback. 
+        This approach will examine items with comparable descriptions and make recommendations based on that. 
         Finding products that match the user's historical tastes takes into account their earlier preferences. 
-        For instance, if a person enjoys watching Toy Story, they will be sent suggestions for other Pixar films and other shows that are quite similar to it.
+        One advantage of Content-based filtering is that the model does not need any data about other users, since the recommendations are specific to this user. 
+        This makes it easier to scale to a large number of users. The model can capture the specific interests of a user, and can recommend niche items that very few other users are interested in.
         """)
 
         st.info("##### Collaborative Filtering")
-        st.write("""By filtering recommendations for a user based on the opinions of other users who share similar interests, 
-        the Collaborative Filtering technique produces recommendations that were gathered and produced by many users rather than just one. 
-        This approach makes use of a huge user base and searches for subsets of users who share a specific user's tastes. 
+        st.write("""Collaborative filtering is a technique that can filter out items that a user might like on the basis of reactions by similar users. 
+        It works by searching a large group of people and finding a smaller set of users with tastes similar to a particular user. 
         It will give the user access to a greater variety of content and base recommendations on how similar their interests are.
-        A fairly common technique for movie recommendation systems is collaborative filtering, which was made simple to utilize by the wealth 
-        of information available on it. Due to its widespread use and comparatively simple operation, it also makes straightforward maintenance 
+        Due to its widespread use and comparatively simple operation, it also makes straightforward maintenance 
         and ongoing customization possible. Additionally, it performs better than the Content Based Filter because it uses less processing power.
         """)
 
@@ -171,27 +168,105 @@ def main():
         
 
         st.info("##### Why we believe our Recommender System is the best in the market! ")
-       
+        st.write("""We created our recommender system with a focus on being user friendly and providing the best experience to the user. We want the 
+        user to be exposed to familiar and new content alike and with using our custom algorithm we have achieved this. Our Recommender System will not 
+        only attract more customers to the platform but also have great customer retention as our system only gets more effective the more it is used.
+        Our system is easy to use and implement and will enable any company using it to rival all other similar content driving platforms. """)
 
 
-
-    # You may want to add more sections here for aspects such as an EDA,
-    # or to provide your business pitch.
-
-    # if page_selection == "Visualisations":
     if page_selection == "Visualisations":
         st.title("Visualisations")
-        st.write("We will use this section for graphs found during EDA process")
+        st.write("##### For this section we will explore the distribution of the data from genres, user preferences, ratings etc.")
+        st.write("---")
+
+        st.write("##### Bar graph showing Most popular tags")
+        st.image("images/Tags.png")
+        st.write("""
+		#### Quick overview of the data above:
+* There is a strong imbalance amongst the tags found on the dataset.
+* Based on the information displayed by our bar graph, we can see that the top 3 leading tags include Sci-Fi, Atmospheric as well as Action.
+* Only a few distribution is shown under the Funny, Visually appealing and Dystopia.
+* This tells us what the tastes of most users are. Some actionable things we can take from this is the types of movies we can offer on the platform that are in-line with our users tastes
+                    
+				""")
+        st.write("---")
+
+        st.write("##### Bar graph showing Top Rated Movies")
+        st.image("images/TopMovies.png")
+        st.write("""
+		#### Quick overview of the data above:
+Here we see the highest rated movies are older moves, some from the 90s and 2000s.Special events could be had around these kind of movies like a “Star wars theme” week where we promote movies that are similar to star wars or theme the user interface like star wars or whatever the top rated movie for a certain user is. This could have a positive impact on the service’s brand loyalty
+
+				""")
+        st.write("---")
+
+        st.write("##### Bar graph showing Number of Movies for each Rating")
+        st.image("images/Ratings.png")
+        st.write("""
+		#### Quick overview of the data above:
+Here we can talk about the fact that most of the ratings fall on the positive side so that means the users like the movies that are being offered. Further investigation can be done to produce more content that are similar or offer content that are similar to the highest rated ones to increase and maintain user attention
+				""")
+        
+        
+
+    if page_selection == "Data Information":
+        st.title("Data Information")
+        st.info("##### Data Overview")
+        
+        left_column, right_column = st.columns(2)
+        with left_column:
+            st.write('''This dataset consists of several million 5-star ratings obtained from users of the online MovieLens movie recommendation service. 
+                The MovieLens dataset has long been used by industry and academic researchers to improve the performance of explicitly-based recommender systems, 
+                and now you get to as well!.''')
+
+        with right_column:
+             data = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_fasueuv1.json")
+             st_lottie(data, height=300, key="coding")
+        
+        st.info("##### More Information about the data")
+
+        source = st.checkbox("Data Source")
+        if source:
+            st.write("### Where did we get the data from?")
+            logo = Image.open("images/IMBD.png")
+            st.image("images/IMBD.png", use_column_width=True)
+            st.write('''The data for the MovieLens dataset is maintained by the GroupLens research group in the Department of Computer Science and Engineering 
+            at the University of Minnesota. Additional movie content data was legally scraped from IMDB''')
+            st.write("---")
+        
+        
+        look = st.checkbox("Supplied Data")
+        if look:
+            st.write("### List of files")
+            st.write("##### Given below is a list of files that were legally scraped from IMBD")
+            st.write('''* genome_scores.csv - a score mapping the strength between movies and tag-related properties.
+                        \n* genome_tags.csv - user assigned tags for genome-related scores
+                        \n* imdb_data.csv - Additional movie metadata scraped from IMDB using the links.csv file.
+                        \n* links.csv - File providing a mapping between a MovieLens ID and associated IMDB and TMDB IDs.
+                        \n* sample_submission.csv - Sample of the submission format for the hackathon.
+                        \n* tags.csv - User assigned for the movies within the dataset.
+                        \n* test.csv - The test split of the dataset. Contains user and movie IDs with no rating data.
+                        \n* train.csv - The training split of the dataset. Contains user and movie IDs with associated rating data.
+                    ''')
+            st.write("---")
+ 
+        # model = st.checkbox("Content-based")
+        # if model:
+        #     st.subheader("Content based Model")
+        #     st.markdown("**Algorithm:**")
+        #     st.markdown("The algorithm that was used was the unsupervised kNN learning best method.\
+        #                 It acts as a uniform interface to three different nearest neighbors algorithms:\
+        #                 BallTree, KDTree, and a brute-force algorithm based on routines in sklearn.metrics.pairwise.\
+        #                 More infomation can be received here:https://scikit-learn.org/stable/modules/neighbors.html#:~:text=1.-,Unsupervised%20Nearest%20Neighbors,based%20on%20routines%20in%20sklearn.")
 
 
     # Building the "Meet the Team" page
-    if page_selection == "Meet the Team":
+    if page_selection == "About Us!":
         st.title("Meet the Team!")
         
-
+        st.info("##### Astro Coders")
         left_column, right_column = st.columns(2)
         with left_column:
-            st.info("##### Astro Coders")
             st.write(""" 
                     An organization based in Southern Africa with a passion for problem solving through the use of our team's unique skill set.
                     Astro Coders, founded in 2020 during the outbreak of Covid19, is one of Africa's largest IT and business consulting firms.
@@ -243,13 +318,9 @@ def main():
                 st.write("""Data Scientist
                     \nsinethemba.nongqoto@astrocoders.co.za""")
 
-
-
-    if page_selection == "Contact us":
-        st.title("Contact us!")
-        # Contact form for queries.
         with st.container():
-                st.info("Send your query using the form below:")
+                st.info("##### Contact us using the form below:")
+                st.write("---")
 
                 # Documention: https://formsubmit.co/
                 contact_form =( """
@@ -261,19 +332,22 @@ def main():
                     <button type="submit">Send</button>
                 </form>
                 """)
-
+        
+        
         left_column, right_column = st.columns(2)
         with right_column:
             # st.write("Lottie file will come in this section")
             # Loading the animation in the "Get in touch with us!" section.
-            contact_animation = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_isbiybfh.json")
-            st_lottie(contact_animation, height=300, key="coding")
+            contact_animation = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_tfemgwhi.json")
+            st_lottie(contact_animation, height=300, key="coding2")
         
         
         with left_column:
             st.markdown(contact_form, unsafe_allow_html=True)
+        
+        st.title("Enjoy your movies! :wave:")
 
-        st.write("---")	
+        st.write("---")
 
 		
 		
