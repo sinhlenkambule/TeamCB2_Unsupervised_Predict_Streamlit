@@ -104,7 +104,7 @@ def main():
                     with st.spinner('Crunching the numbers...'):
                         top_recommendations = content_model(movie_list=fav_movies,
                                                             top_n=10)
-                    # st.title("We think you'll like:")
+                    
                     st.success("##### We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
@@ -119,7 +119,8 @@ def main():
                     with st.spinner('Crunching the numbers...'):
                         top_recommendations = collab_model(movie_list=fav_movies,
                                                            top_n=10)
-                    st.title("We think you'll like:")
+                    
+                    st.success("##### We think you'll like:")
                     for i,j in enumerate(top_recommendations):
                         st.subheader(str(i+1)+'. '+j)
                 except:
@@ -221,6 +222,7 @@ Here we can talk about the fact that most of the ratings fall on the positive si
                 and now you get to as well!.''')
 
         with right_column:
+            # Loading the animation in the "Data Information" section.
              data = load_lottieurl("https://assets6.lottiefiles.com/packages/lf20_fasueuv1.json")
              st_lottie(data, height=300, key="coding")
         
@@ -251,17 +253,8 @@ Here we can talk about the fact that most of the ratings fall on the positive si
                     ''')
             st.write("---")
  
-        # model = st.checkbox("Content-based")
-        # if model:
-        #     st.subheader("Content based Model")
-        #     st.markdown("**Algorithm:**")
-        #     st.markdown("The algorithm that was used was the unsupervised kNN learning best method.\
-        #                 It acts as a uniform interface to three different nearest neighbors algorithms:\
-        #                 BallTree, KDTree, and a brute-force algorithm based on routines in sklearn.metrics.pairwise.\
-        #                 More infomation can be received here:https://scikit-learn.org/stable/modules/neighbors.html#:~:text=1.-,Unsupervised%20Nearest%20Neighbors,based%20on%20routines%20in%20sklearn.")
-
-
-    # Building the "Meet the Team" page
+        
+    # Building the "About Us!" page
     if page_selection == "About Us!":
         st.title("Meet the Team!")
         
@@ -277,8 +270,7 @@ Here we can talk about the fact that most of the ratings fall on the positive si
             """)
 
         with right_column:
-            # Loading the animation in the "Get in touch with us!" section.
-            # st.write("Get a different animation for the team section")
+            # Loading the animation in the "About!" section.
              contact_animation = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_zqndq8mg.json")
              st_lottie(contact_animation, height=300, key="coding")
 
@@ -337,8 +329,8 @@ Here we can talk about the fact that most of the ratings fall on the positive si
         
         left_column, right_column = st.columns(2)
         with right_column:
-            # st.write("Lottie file will come in this section")
-            # Loading the animation in the "Get in touch with us!" section.
+            
+            # Loading the animation in the "Contact form" section.
             contact_animation = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_tfemgwhi.json")
             st_lottie(contact_animation, height=300, key="coding2")
         
@@ -349,9 +341,7 @@ Here we can talk about the fact that most of the ratings fall on the positive si
         st.title("Enjoy your movies! :wave:")
 
         st.write("---")
-
-		
-		
+	
 
 if __name__ == '__main__':
     main()
