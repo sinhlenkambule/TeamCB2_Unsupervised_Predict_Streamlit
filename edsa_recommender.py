@@ -74,7 +74,7 @@ def main():
     # you are welcome to add more options to enrich your app.
     page_options = ["Recommender System", "Visualisations","Data Information", "Solution Overview", "About Us!"]
     
-    st.sidebar.image("images/Team_logo.png", use_column_width=True)
+    st.sidebar.image("images/Astro_Coders1.png", use_column_width=True)
 
     # -------------------------------------------------------------------
     # ----------- !! THIS CODE MUST NOT BE ALTERED !! -------------------
@@ -148,7 +148,7 @@ def main():
         
         st.image("images/contentVScollab2.png")
 
-        st.info("##### Content Based Filtering")
+        st.info("##### Content-based Filtering")
         st.write("""Content-based filtering uses item features to recommend other items similar to what the user likes, based on their previous actions or explicit feedback. 
         This approach will examine items with comparable descriptions and make recommendations based on that. 
         Finding products that match the user's historical tastes takes into account their earlier preferences. 
@@ -156,7 +156,7 @@ def main():
         This makes it easier to scale to a large number of users. The model can capture the specific interests of a user, and can recommend niche items that very few other users are interested in.
         """)
 
-        st.info("##### Collaborative Filtering")
+        st.info("##### Collaborative-based Filtering")
         st.write("""Collaborative filtering is a technique that can filter out items that a user might like on the basis of reactions by similar users. 
         It works by searching a large group of people and finding a smaller set of users with tastes similar to a particular user. 
         It will give the user access to a greater variety of content and base recommendations on how similar their interests are.
@@ -164,8 +164,12 @@ def main():
         and ongoing customization possible. Additionally, it performs better than the Content Based Filter because it uses less processing power.
         """)
 
-        st.success("##### Winner: ")
-        st.write("Use this section to describe our winning algorithm")
+        st.success("##### Winner: Collaborative-based Filtering")
+        st.write("""Our best filtering method goes to the Collaborative-based method for a number of reasons. The primary advantage of collaborative filtering is that users can get broader exposure to many different movies , which creates possibilities to encourage them towards continual usage of the platform. 
+        Collaborative filtering gives suggestions because most of the unknown buyers have a similar taste to you. Still, in Content-based, you will get the recommendations of movies based on their features. In contrast to Collaborative filtering, new new movies are suggested without any specifications to the users.
+        The collaborative filtering model can help users discover new interests and although the ML system might not know the users interest in a given movie, the model might still recommend it because similar users are interested in that movie. 
+        On the other hand, A Content-based model can only make recommendations based on the existing interests of the user and the model hence only has limited ability to expand on the users existing interests.
+        """)
         
 
         st.info("##### Why we believe our Recommender System is the best in the market! ")
